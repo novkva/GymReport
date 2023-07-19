@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GymReport.Common\GymReport.Common.csproj" />
+    <ProjectReference Include="..\GymReport.DAL\GymReport.DAL.csproj" />
+  </ItemGroup>
+
+</Project>
