@@ -23,8 +23,4 @@
     <ProjectReference Include="..\GymReport.Common\GymReport.Common.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Repositories\" />
-  </ItemGroup>
-
 </Project>
