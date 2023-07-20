@@ -20,9 +20,20 @@ namespace GymReport.DAL.Repositories
             return exercise;
         }
 
+        public void Delete(Exercise exercise)
+        {
+            _context.Exercises.Remove(exercise);
+            _context.SaveChanges();
+        }
+
         public async Task<List<Exercise>> GetAllExercises()
         {
             return await _context.Exercises.ToListAsync();
+        }
+
+        public Exercise GetById(int id)
+        {
+            return _context.Exercises.FirstOrDefault(e => e.Id == id);
         }
     }
 }

@@ -15,9 +15,9 @@ namespace GymReport.Controllers
             _exerciseService = exerciseService;
         }
         /// <summary>
-        /// Добавить новое упражнение
+        /// Add new exercise
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Id of added exercise</returns>
         [HttpPost]
         public ActionResult<int> Add(string name)
         {
@@ -25,22 +25,35 @@ namespace GymReport.Controllers
         }
 
         /// <summary>
-        /// Получить все имеющиеся упражнения
+        /// Get all exercises
         /// </summary>
-        /// <returns></returns>
+        /// <returns>List of exercises</returns>
         [HttpGet]
         public async Task<ActionResult<List<Exercise>>> GetAll()
         {
             return await _exerciseService.GetAllExcercises();
         }
 
-        ///// <summary>
-        ///// Удалить упражнение
-        ///// </summary>
-        //public void Delete()
-        //{
+        /// <summary>
+        /// Delete exercise
+        /// </summary>
+        /// <param name="id">Id of exercise</param>
+        [HttpDelete("{id}")]
+        public void Delete([FromRoute] int id)
+        {
+            _exerciseService.Delete(id);
+        }
 
-        //}
+        /// <summary>
+        /// Get one exercise
+        /// </summary>
+        /// <param name="id">Id of exercise</param>
+        /// <returns>Exercise</returns>
+        [HttpGet("{id}")]
+        public Exercise GetById([FromRoute] int id)
+        {
+            return _exerciseService.GetById(id);
+        }
 
         ///// <summary>
         ///// Изменить упражнение

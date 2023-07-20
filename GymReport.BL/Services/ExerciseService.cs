@@ -20,6 +20,16 @@ namespace GymReport.BL.Services
             return result.Id;
         }
 
+        public void Delete(int id)
+        {
+            var ex = _exerciseRepository.GetById(id);
+            if (ex == null)
+            {
+                return;
+            }
+            _exerciseRepository.Delete(ex);
+        }
+
         public async Task<List<Exercise>> GetAllExcercises()
         {
             return await _exerciseRepository.GetAllExercises();
