@@ -1,4 +1,5 @@
 ﻿using GymReport.BL.Interfaces;
+using GymReport.Common.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GymReport.Controllers
@@ -23,15 +24,16 @@ namespace GymReport.Controllers
             return _exerciseService.AddExcercise(name);
         }
 
-        ///// <summary>
-        ///// Получить все имеющиеся упражнения
-        ///// </summary>
-        ///// <returns></returns>
-        //public IActionResult GetAll()
-        //{
-        //    return View();
-        //}
- 
+        /// <summary>
+        /// Получить все имеющиеся упражнения
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<ActionResult<List<Exercise>>> GetAll()
+        {
+            return await _exerciseService.GetAllExcercises();
+        }
+
         ///// <summary>
         ///// Удалить упражнение
         ///// </summary>

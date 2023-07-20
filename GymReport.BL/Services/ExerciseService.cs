@@ -19,5 +19,10 @@ namespace GymReport.BL.Services
             var result = _exerciseRepository.AddExercise(exercise);
             return result.Id;
         }
+
+        public async Task<List<Exercise>> GetAllExcercises()
+        {
+            return await _exerciseRepository.GetAllExercises();
+        }
     }
 }

@@ -1,7 +1,9 @@
 ﻿using GymReport.Common.Entities;
 using GymReport.DAL.Contexts;
 using GymReport.DAL.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
+
 namespace GymReport.DAL.Repositories
 {
     public class ExerciseRepository : IExerciseRepository
@@ -16,6 +18,11 @@ namespace GymReport.DAL.Repositories
             _context.Exercises.Add(exercise);
             _context.SaveChanges();
             return exercise;
+        }
+
+        public async Task<List<Exercise>> GetAllExercises()
+        {
+            return await _context.Exercises.ToListAsync();
         }
     }
 }

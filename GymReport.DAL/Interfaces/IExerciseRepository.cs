@@ -5,5 +5,6 @@ namespace GymReport.DAL.Interfaces
     public interface IExerciseRepository
     {
         Exercise AddExercise(Exercise exercise);
+        Task<List<Exercise>> GetAllExercises();
     }
 }
