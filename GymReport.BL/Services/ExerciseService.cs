@@ -34,5 +34,10 @@ namespace GymReport.BL.Services
         {
             return await _exerciseRepository.GetAllExercises();
         }
+
+        public Exercise GetById(int id)
+        {
+            return _exerciseRepository.GetById(id);
+        }
     }
 }

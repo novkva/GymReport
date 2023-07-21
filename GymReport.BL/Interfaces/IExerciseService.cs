@@ -7,5 +7,6 @@ namespace GymReport.BL.Interfaces
         int AddExcercise(string name, string? description = default);
         Task<List<Exercise>> GetAllExcercises();
         void Delete(int id);
+        Exercise GetById(int id);
     }
 }
