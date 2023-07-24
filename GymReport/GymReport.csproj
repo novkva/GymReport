@@ -19,6 +19,7 @@
   <ItemGroup>
     <ProjectReference Include="..\GymReport.BL\GymReport.BL.csproj" />
     <ProjectReference Include="..\GymReport.Common\GymReport.Common.csproj" />
+    <ProjectReference Include="..\LoggerService\LoggerService.csproj" />
   </ItemGroup>
 
 </Project>

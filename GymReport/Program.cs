@@ -1,14 +1,18 @@
 using GymReport.BL.Interfaces;
 using GymReport.BL.Services;
+using GymReport.Contracts;
 using GymReport.DAL.Contexts;
 using GymReport.DAL.Interfaces;
 using GymReport.DAL.Repositories;
+using LoggerService;
 using Microsoft.EntityFrameworkCore;
+using NLog;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+var t =LogManager.Setup().LoadConfigurationFromFile(string.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
+builder.Services.AddSingleton<ILoggerManager, LoggerManager>();
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
