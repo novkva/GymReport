@@ -1,5 +1,6 @@
 ﻿using GymReport.BL.Interfaces;
 using GymReport.Common.Entities;
+using GymReport.Contracts;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GymReport.Controllers
@@ -9,10 +10,12 @@ namespace GymReport.Controllers
     public class ExerciseController : Controller
     {
         private readonly IExerciseService _exerciseService;
+        private readonly ILoggerManager _logger;
 
-        public ExerciseController(IExerciseService exerciseService)
+        public ExerciseController(IExerciseService exerciseService, ILoggerManager loggerManager)
         {
             _exerciseService = exerciseService;
+            _logger = loggerManager;
         }
         /// <summary>
         /// Add new exercise
@@ -21,6 +24,7 @@ namespace GymReport.Controllers
         [HttpPost]
         public ActionResult<int> Add(string name)
         {
+            _logger.LogError("Here is info message from the controller.");
             return _exerciseService.AddExcercise(name);
         }
 
