@@ -4,6 +4,7 @@ using GymReport.Contracts;
 using GymReport.DAL.Contexts;
 using GymReport.DAL.Interfaces;
 using GymReport.DAL.Repositories;
+using GymReport.Extensions;
 using LoggerService;
 using Microsoft.EntityFrameworkCore;
 using NLog;
@@ -27,6 +28,9 @@ builder.Services.AddDbContext<DbContextBase>(
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
 var app = builder.Build();
+
+var logger = app.Services.GetRequiredService<ILoggerManager>();
+app.ConfigureExceptionHandler(logger);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
